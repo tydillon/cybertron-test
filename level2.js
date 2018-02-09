@@ -16,7 +16,14 @@ export default function() {
     'Use filter and the hex2color function to filter list of hex values to only list colors that are not blue, red, or green'
   const exercise2 = _ => {
     const hexes = ['#0000ff', '#f5f5dc', '#cd853f', '#663399', '#ffa500']
-    return null
+    return hexes.filter(
+      c =>
+        hex2color(c) !== 'blue' &&
+        hex2color(c) !== 'red' &&
+        hex2color(c) !== 'green'
+          ? c
+          : hex2color(c)
+    )
   }
 
   const ex3 =
