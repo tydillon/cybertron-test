@@ -15,16 +15,16 @@
 
 * <strong>Fork</strong> this repo:
 
-https://github.com/curreythomas/cybertron-test.git
+https://github.com/curreythomas/cybertron-exam.git
 
 * Clone your forked repo down to your local machine
 
-`git clone https://github.com/{yourprofile}/cybertron-test`
+`git clone https://github.com/{yourprofile}/cybertron-exam`
 
 * Install dependencies and start server
 
 ```
-cd cybertron-test
+cd cybertron-exam
 npm install
 npm start
 ```
