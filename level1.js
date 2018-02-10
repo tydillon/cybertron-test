@@ -45,7 +45,7 @@ export default function() {
     return [] // return answer here
   }
 
-  const ex7 = `use compose to run the following three commands
+  const ex7 = `use compose and the checkPrimes function to run the following three commands:
 
   1. Use map to subtract 1 from each numbers
   2. Use filter to return all prime numbers.

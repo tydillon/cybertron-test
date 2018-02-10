@@ -1,5 +1,5 @@
 import test from 'tape'
-import { map, filter, reduce, compose, prop } from 'nanofp'
+import { map, filter, reduce, compose } from 'nanofp'
 import capitalizeWords from './lib/capitalize'
 
 const paintings = [
@@ -18,7 +18,7 @@ const paintings = [
     lastPriceSold: 35000000
   },
   {
-    name: 'Salvator Mundi',
+    name: 'salvator mundi',
     movement: 'renaissance',
     artist: 'leonardo da vinci',
     yearCreated: 1490,
@@ -55,13 +55,13 @@ export default function() {
     return paintings.map(p => capitalizeWords(p.name))
   }
 
-  const ex2 = 'Use filter to filter list of paintings done in the 1800s'
+  const ex2 = 'Use filter to return a list of paintings done in the 1800s'
   const exercise2 = _ => {
     return paintings.filter(p => p.yearCreated >= 1800 && p.yearCreated < 1900)
   }
 
   const ex3 =
-    'Use reduce and count the number of paintings that were done in the 1800s'
+    'Use reduce to count the number of paintings that were done in the 1800s'
   const exercise3 = _ => {
     return paintings.reduce(
       (acc, p) =>
@@ -93,9 +93,18 @@ export default function() {
     )
   }
 
+  const ex6 = `Use compose and filter to return impressionism paintings, map over them and return the names of the paintings with the first letter capitalized.`
+
+  const exercise6 = _ => {
+    return compose(
+      map(p => capitalizeWords(p.name)),
+      filter(p => p.movement === 'impressionism')
+    )(paintings)
+  }
+
   /* tests to validate exercises go here */
   test('test', assert => {
-    assert.plan(5)
+    assert.plan(6)
     assert.same(
       exercise1(),
       [
@@ -146,5 +155,6 @@ export default function() {
       '$200,000,000.00',
       '$450,000.00'
     ])
+    assert.same(exercise6(), ['Le Grand Canal', 'Umbrellas'], ex6)
   })
 }

@@ -1,38 +1,37 @@
 <pre><code>
- ____       _               _
-/ ___|    _| |__   ___ _ __| |_ _ __ ___  _ __
-| |  | | | | '_ \ / _ \ '__| __| '__/ _ \| '_ \
-| |__| |_| | |_) |  __/ |  | |_| | | (_) | | | |
-\____ \__, |_.__/ \___|_|   \__|_|  \___/|_| |_|
+ ____       _               _                                 _______           _
+/ ___|    _| |__   ___ _ __| |_ _ __ ___  _ __               |__   __|___  ___ | |_
+| |  | | | | '_ \ / _ \ '__| __| '__/ _ \| '_ \     _ _ _ _     | |  / _ \/ __/|  __|
+| |__| |_| | |_) |  __/ |  | |_| | | (_) | | | |  /_ _ _ _ /    | | |  __/\__ \| |__
+\____ \__, |_.__/ \___|_|   \__|_|  \___/|_| |_|                |_|  \___|\___/ \___|
       |___/
 </code></pre>
 
-Cybertron is a project that helps you practice your Functional JavaScript.
-Currently, there are 7 levels, and 4 exercises on each level. Try to complete
-all 6 levels, then do it again! Get as many reps as you can and these commands
-will become more familiar.
+**Please Read the instructions two times before starting.**
 
-Want more levels? Lets add them!
+**Follow the instructions very carefully!**
 
 ## How it works?
 
-* Requirements Node v8 (https://nodejs.org)
+* <strong>Fork</strong> this repo:
 
-- Clone Repo -
+https://github.com/curreythomas/cybertron-test.git
 
-`git clone https://github.com/twilson63/cybertron.git`
+* Clone your forked repo down to your local machine
 
-* Install dependencies and Start Server
+`git clone https://github.com/{yourprofile}/cybertron-test`
 
-```sh
-cd cybertron
+* Install dependencies and start server
+
+```
+cd cybertron-test
 npm install
 npm start
 ```
 
 * Use your favorite editor to open the project
 
-You will see 7 js files, called levelx.js and an index.js file.
+You will see 3 js files, called levelx.js and an index.js file.
 
 Open level1.js and start working on the exercises, each time you complete an
 exercise go to your browser and refresh the window to see the results.
@@ -40,6 +39,32 @@ exercise go to your browser and refresh the window to see the results.
 When you finish the first level to go to the next level, simply uncomment the
 level run code in the index.js file and then open the level js file and start
 running that level.
+
+## GRADING
+
+Each question is worth 5 points. A total of 100 points is available. The test
+will be graded on the following scale:
+
+| GRADING SCALE              | SCORE     |
+| -------------------------- | --------- |
+| OUTSTANDING                | 95 TO 100 |
+| EXCEEDS EXPECTATIONS       | 85 TO 94  |
+| MEETS EXPECTATIONS         | 70 TO 84  |
+| BELOW EXPECTATIONS         | 60 to 69  |
+| DOES NOT MEET EXPECTATIONS | BELOW 60  |
+
+> TO ANSWER ANY GIVEN CHALLENGE CORRECTLY YOU MUST MATCH THE OUTPUT EXACTLY.
+
+MAKE SURE YOU DON'T MISS ANY QUESTIONS.
+
+* LEVEL 1: 7 QUESTIONS
+* LEVEL 2: 7 QUESTIONS
+* LEVEL 3: 6 QUESTIONS
+
+> CYBERTRON WILL PROVIDE YOU WITH THE EXPECTED OUTPUT OF EACH ANSWER.
+
+When you finish your exam commit and push your answers to your forked repo and
+send a link to that repo via Slack directly to your instructor.
 
 ## Linter Support
 
