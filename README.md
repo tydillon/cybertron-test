@@ -28,6 +28,8 @@ cd cybertron-test
 npm install
 npm start
 ```
+> Windows Users may need to install browser-sync globally
+> `npm install browser-sync --global`
 
 * Use your favorite editor to open the project
 
