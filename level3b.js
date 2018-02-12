@@ -2,77 +2,83 @@ import test from 'tape'
 import { map, filter, reduce, compose } from 'nanofp'
 import capitalizeWords from './lib/capitalize'
 
-const paintings = [
+const cars = [
   {
-    name: 'irises',
-    movement: 'post-impressionism',
-    artist: 'vincent van gogh',
-    yearCreated: 1889,
-    lastPriceSold: 53900000
+    model: 'silverado',
+    make: 'chevy',
+    engine: 'V8',
+    color: 'black',
+    year: 1999,
+    salesPrice: 29000
   },
   {
-    name: 'le grand canal',
-    movement: 'impressionism',
-    artist: 'claude monet',
-    yearCreated: 1908,
-    lastPriceSold: 35000000
+    model: 'grand prix',
+    make: 'pontiac',
+    engine: 'V6',
+    color: 'red',
+    year: 2001,
+    salesPrice: 32000
   },
   {
-    name: 'salvator mundi',
-    movement: 'renaissance',
-    artist: 'leonardo da vinci',
-    yearCreated: 1490,
-    lastPriceSold: 450000000
+    model: 'deville',
+    make: 'cadillac',
+    engine: 'V8',
+    color: 'brown',
+    year: 2002,
+    salesPrice: 36000
   },
   {
-    name: 'a sunday afternoon on the island of la grande jatte',
-    movement: 'post-impressionism',
-    artist: 'georges seurat',
-    yearCreated: 1884,
-    lastPriceSold: 35200000
+    model: 'land cruiser',
+    make: 'toyota',
+    engine: 'V8',
+    color: 'black',
+    year: 2001,
+    salesPrice: 40000
   },
   {
-    name: 'guernica',
-    movement: 'surrealism',
-    artist: 'pablo picasso',
-    yearCreated: 1937,
-    lastPriceSold: 200000000
+    model: 'civic',
+    make: 'honda',
+    engine: 'V4',
+    color: 'silver',
+    year: 2004,
+    salesPrice: 29000
   },
   {
-    name: 'umbrellas',
-    movement: 'impressionism',
-    artist: 'pierre-auguste renoires',
-    yearCreated: 1886,
-    lastPriceSold: 450000
+    model: 'sierra',
+    make: 'GMC',
+    engine: 'V8',
+    color: 'navy',
+    year: 2006,
+    salesPrice: 30000
   }
 ]
 
 /* Level 3 - Paintings */
 export default function() {
   const ex1 =
-    'Use map to transform the list of painting names to uppercase the first letter of each word'
+    'Use map to transform the list of auto models to uppercase the first letter of each word'
   const exercise1 = _ => {
     return []
   }
 
-  const ex2 = 'Use filter to return a list of paintings done in the 1800s'
+  const ex2 = 'Use filter to return a list of cars made between 2001-2004'
   const exercise2 = _ => {
     return []
   }
 
   const ex3 =
-    'Use reduce to count the number of paintings that were done in the 1800s'
+    'Use reduce to count the number of cars that were made in the 2000s'
   const exercise3 = _ => {
     return 0
   }
 
   const ex4 =
-    'Use map, filter and reduce with compose to return the price of the the most expensive painting from the 1800s '
+    'Use map, filter and reduce with compose to return the price of the the most expensive car from the 2000s '
   const exercise4 = _ => {
     return 0
   }
 
-  const ex5 = `Use map to transform the lastPriceSold to USD currency format (ex: $400,000.00)
+  const ex5 = `Use map to transform the salesPrice to USD currency format (ex: $400,000.00)
 
     ** Hint: Check MDN for the toLocaleString method on the Number Object **
     `
@@ -80,7 +86,7 @@ export default function() {
     return []
   }
 
-  const ex6 = `Use compose and filter to return impressionism paintings, map over them and return the names of the paintings with the first letter capitalized.`
+  const ex6 = `Use compose and filter to return cars with V8s, map over them and return the names of the cars with the first letter capitalized.`
 
   const exercise6 = _ => {
     return []
@@ -91,14 +97,7 @@ export default function() {
     assert.plan(6)
     assert.same(
       exercise1(),
-      [
-        'Irises',
-        'Le Grand Canal',
-        'Salvator Mundi',
-        'A Sunday Afternoon On The Island Of La Grande Jatte',
-        'Guernica',
-        'Umbrellas'
-      ],
+      ['Silverado', 'Grand Prix', 'Deville', 'Land Cruiser', 'Civic', 'Sierra'],
       ex1
     )
 
@@ -106,39 +105,54 @@ export default function() {
       exercise2(),
       [
         {
-          name: 'irises',
-          movement: 'post-impressionism',
-          artist: 'vincent van gogh',
-          yearCreated: 1889,
-          lastPriceSold: 53900000
+          model: 'grand prix',
+          make: 'pontiac',
+          engine: 'V6',
+          color: 'red',
+          year: 2001,
+          salesPrice: 32000
         },
         {
-          name: 'a sunday afternoon on the island of la grande jatte',
-          movement: 'post-impressionism',
-          artist: 'georges seurat',
-          yearCreated: 1884,
-          lastPriceSold: 35200000
+          model: 'deville',
+          make: 'cadillac',
+          engine: 'V8',
+          color: 'brown',
+          year: 2002,
+          salesPrice: 36000
         },
         {
-          name: 'umbrellas',
-          movement: 'impressionism',
-          artist: 'pierre-auguste renoires',
-          yearCreated: 1886,
-          lastPriceSold: 450000
+          model: 'land cruiser',
+          make: 'toyota',
+          engine: 'V8',
+          color: 'black',
+          year: 2001,
+          salesPrice: 40000
+        },
+        {
+          model: 'civic',
+          make: 'honda',
+          engine: 'V4',
+          color: 'silver',
+          year: 2004,
+          salesPrice: 29000
         }
       ],
       ex2
     )
-    assert.equals(exercise3(), 3, ex3)
-    assert.same(exercise4(), 53900000, ex4)
+    assert.equals(exercise3(), 5, ex3)
+    assert.same(exercise4(), 40000, ex4)
     assert.same(exercise5(), [
-      '$53,900,000.00',
-      '$35,000,000.00',
-      '$450,000,000.00',
-      '$35,200,000.00',
-      '$200,000,000.00',
-      '$450,000.00'
+      '$29,000.00',
+      '$32,000.00',
+      '$36,000.00',
+      '$40,000.00',
+      '$29,000.00',
+      '$30,000.00'
     ])
-    assert.same(exercise6(), ['Le Grand Canal', 'Umbrellas'], ex6)
+    assert.same(
+      exercise6(),
+      ['Silverado', 'Deville', 'Land Cruiser', 'Sierra'],
+      ex6
+    )
   })
 }
