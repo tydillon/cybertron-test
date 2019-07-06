@@ -15,7 +15,7 @@
 
 * <strong>Fork</strong> this repo:
 
-https://github.com/curreythomas/cybertron-test.git
+https://github.com/twilson63/cybertron-test.git
 
 * Clone your forked repo down to your local machine
 
