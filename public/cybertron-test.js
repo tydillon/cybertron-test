@@ -254,6 +254,7 @@
             });
         });
     }
+    //# sourceMappingURL=tape-modern.esm.js.map
 
     function createCommonjsModule(fn, module) {
     	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -758,6 +759,8 @@
     assert.same = (a,b,msg) => {
       const result = equals(a,b);
       if (!result) {
+        console.log('<<<<<<<test>>>>>>>');
+        console.log('test - ', msg);
         console.log(`expected: ${JSON.stringify(b)}`);
         console.log('actual: ', JSON.stringify(a));
       }

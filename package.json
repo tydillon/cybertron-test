@@ -13,7 +13,9 @@
   },
   "scripts": {
     "lint": "eslint index.js",
-    "start": "w3 public"
+    "watch": "rollup -cw",
+    "w3": "w3 public",
+    "start": "run-p w3 watch"
   },
   "devDependencies": {
     "eslint": "^4.8.0",
@@ -23,6 +25,7 @@
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
     "rollup": "^1.16.6",
     "rollup-plugin-commonjs": "^10.0.1",
