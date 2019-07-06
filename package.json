@@ -9,7 +9,7 @@
     "ramda": "^0.26.1",
     "tap-browser-color": "^0.1.2",
     "tape-modern": "^1.1.2",
-    "w3": "^2.0.0"
+    "w3": "^2.0.1"
   },
   "scripts": {
     "lint": "eslint index.js",
