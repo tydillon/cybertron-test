@@ -83,3 +83,7 @@ If you are having trouble running the exercises, please post an issue in github.
 ## License
 
 MIT
+
+## Thank you
+
+This test was put together by https://github.com/curreythomas - thank you for your time and effort as a JRS Student.
