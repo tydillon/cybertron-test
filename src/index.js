@@ -9,6 +9,8 @@ import level3 from './level3b'
 assert.same = (a,b,msg) => {
   const result = equals(a,b)
   if (!result) {
+    console.log('<<<<<<<test>>>>>>>')
+    console.log('test - ', msg)
     console.log(`expected: ${JSON.stringify(b)}`)
     console.log('actual: ', JSON.stringify(a))
   }
