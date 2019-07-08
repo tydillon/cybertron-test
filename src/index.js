@@ -17,8 +17,8 @@ assert.same = (a, b, msg) => {
   assert.ok(equals(a, b), msg)
 }
 
-// level3()
-level2()
+level3()
+// level2()
 // level1()
 
 window.test = test

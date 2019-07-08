@@ -694,153 +694,101 @@
       return _equals(a, b, [], []);
     });
 
-    function level2() {
-      /* Level 2 - colors */
-
+    /* Level 3 - Paintings */
+    function level3() {
       const ex1 =
-        'Use map to return a concatenated first and last name of each client.';
+        'Use map to transform the list of auto models to uppercase the first letter of each word';
       const exercise1 = _ => {
         return []
       };
 
-      const ex2 = 'Use filter to return clients from Wyoming';
+      const ex2 = 'Use filter to return a list of cars made between 2001-2004';
       const exercise2 = _ => {
         return []
       };
 
-      const ex3 = 'Use reduce to count the number of people with green eyes ';
+      const ex3 =
+        'Use reduce to count the number of cars that were made in the 2000s';
       const exercise3 = _ => {
         return 0
       };
 
-      const ex4 = `Use map, filter and reduce with compose to return the full name (as a string) of the female from Wyoming. `;
+      const ex4 =
+        'Use map, filter and reduce with compose to return the price of the the most expensive car from the 2000s ';
       const exercise4 = _ => {
-        return null
+        return 0
       };
-
-      const ex5 =
-        'Use map and filter to return the full address of the clients living in North Carolina';
       const exercise5 = _ => {
         return []
       };
 
-      const ex6 = 'use filter to remove anyone over the age of 25';
+      const ex6 = `Use compose and filter to return cars with V8s, map over them and return the names of the cars with the first letter capitalized.`;
+
       const exercise6 = _ => {
         return []
-      };
-
-      const ex7 =
-        'use reduce to count the number of males, age 22 - 27, who have green eyes';
-      const exercise7 = _ => {
-        return 0
       };
 
       /* tests to validate exercises go here */
       test('test', assert => {
         assert.same(
           exercise1(),
-          [
-            'Horne Hahn',
-            'Rhodes Harvey',
-            'Concetta Talley',
-            'Sandra Hogan',
-            'Butler Flynn',
-            'Hurst Adkins'
-          ],
+          ['Silverado', 'Grand Prix', 'Deville', 'Land Cruiser', 'Civic', 'Sierra'],
           ex1
         );
+
         assert.same(
           exercise2(),
           [
             {
-              age: 26,
-              eyeColor: 'green',
-              name: {
-                firstName: 'Sandra',
-                lastName: 'Hogan'
-              },
-              gender: 'female',
-              email: 'sandrahogan@vidto.com',
-              phone: '+1 (987) 568-2357',
-              address: {
-                street: '332 Junius Street',
-                city: 'Cheyenne',
-                state: 'Wyoming',
-                zip: 37564
-              },
-              registered: '2015-03-18T11:57:49 +04:00'
+              model: 'grand prix',
+              make: 'pontiac',
+              engine: 'V6',
+              color: 'red',
+              year: 2001,
+              salesPrice: 32000
             },
             {
-              age: 27,
-              eyeColor: 'blue',
-              name: {
-                firstName: 'Hurst',
-                lastName: 'Adkins'
-              },
-              gender: 'male',
-              email: 'hurstadkins@vidto.com',
-              phone: '+1 (955) 490-2739',
-              address: {
-                street: '874 Delvana Street',
-                city: 'Nanafilda',
-                state: 'Wyoming',
-                zip: 98647
-              },
-              registered: '2015-02-01T11:16:26 +05:00'
+              model: 'deville',
+              make: 'cadillac',
+              engine: 'V8',
+              color: 'brown',
+              year: 2002,
+              salesPrice: 36000
+            },
+            {
+              model: 'land cruiser',
+              make: 'toyota',
+              engine: 'V8',
+              color: 'black',
+              year: 2001,
+              salesPrice: 40000
+            },
+            {
+              model: 'civic',
+              make: 'honda',
+              engine: 'V4',
+              color: 'silver',
+              year: 2004,
+              salesPrice: 29000
             }
           ],
           ex2
         );
-        assert.same(exercise3(), 4, ex3);
-        assert.same(exercise4(), 'Sandra Hogan', ex4);
-        assert.same(
-          exercise5(),
-          ['342 Gelston Avenue Asheville, North Carolina 28801'],
-          ex5
-        );
+        assert.same(exercise3(), 5, ex3);
+        assert.same(exercise4(), 40000, ex4);
+        assert.same(exercise5(), [
+          '$29,000.00',
+          '$32,000.00',
+          '$36,000.00',
+          '$40,000.00',
+          '$29,000.00',
+          '$30,000.00'
+        ]);
         assert.same(
           exercise6(),
-          [
-            {
-              age: 22,
-              eyeColor: 'green',
-              name: {
-                firstName: 'Horne',
-                lastName: 'Hahn'
-              },
-              gender: 'male',
-              email: 'hornehahn@vidto.com',
-              phone: '+1 (803) 528-3269',
-              address: {
-                street: '494 Bayview Place',
-                city: 'Chesterfield',
-                state: 'Nebraska',
-                zip: 84643
-              },
-              registered: '2014-04-13T12:10:25 +04:00'
-            },
-            {
-              age: 25,
-              eyeColor: 'green',
-              name: {
-                firstName: 'Rhodes',
-                lastName: 'Harvey'
-              },
-              gender: 'male',
-              email: 'rhodesharvey@vidto.com',
-              phone: '+1 (975) 583-2319',
-              address: {
-                street: '705 Legion Street',
-                city: 'Herald',
-                state: 'Idaho',
-                zip: 63136
-              },
-              registered: '2015-03-24T11:02:46 +04:00'
-            }
-          ],
+          ['Silverado', 'Deville', 'Land Cruiser', 'Sierra'],
           ex6
-        ),
-          assert.same(exercise7(), 2, ex7);
+        );
       });
     }
 
@@ -855,8 +803,8 @@
       assert.ok(equals(a, b), msg);
     };
 
-    // level3()
-    level2();
+    level3();
+    // level2()
     // level1()
 
     window.test = test;
