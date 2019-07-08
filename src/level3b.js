@@ -1,5 +1,5 @@
 import { test } from 'tape-modern'
-import { map, filter, reduce, compose } from 'ramda'
+import { map, filter, reduce, compose, prop, head, tail } from 'ramda'
 import capitalizeWords from './lib/capitalize'
 
 const cars = [
@@ -58,24 +58,56 @@ export default function() {
   const ex1 =
     'Use map to transform the list of auto models to uppercase the first letter of each word'
   const exercise1 = _ => {
-    return []
+    return map(car => {
+      const name = car.model.split(' ')
+      const capNames = map(
+        n => head(n).toUpperCase() + tail(n).toLowerCase(),
+        name
+      )
+      return capNames.join(' ')
+    }, cars)
   }
 
   const ex2 = 'Use filter to return a list of cars made between 2001-2004'
   const exercise2 = _ => {
-    return []
+    return filter(
+      car => prop('year', car) >= 2001 && prop('year', car) <= 2004,
+      cars
+    )
   }
 
   const ex3 =
     'Use reduce to count the number of cars that were made in the 2000s'
   const exercise3 = _ => {
-    return 0
+    return reduce(
+      (acc, car) => {
+        if (prop('year', car) >= 2000) {
+          acc = acc + 1
+        }
+        return acc
+      },
+      0,
+      cars
+    )
   }
 
   const ex4 =
     'Use map, filter and reduce with compose to return the price of the the most expensive car from the 2000s '
   const exercise4 = _ => {
-    return 0
+    const getBiggestPrice = reduce((acc, car) => {
+      if (car > acc) {
+        acc = car
+      }
+      return acc
+    }, 0)
+    const getAllPrices = map(car => prop('salesPrice', car))
+    const from2000 = filter(car => prop('year', car) >= 2000)
+    const result = compose(
+      getBiggestPrice,
+      getAllPrices,
+      from2000
+    )
+    return result(cars)
   }
 
   const ex5 = `Use map to transform the salesPrice to USD currency format (ex: $400,000.00)
@@ -83,13 +115,33 @@ export default function() {
     ** Hint: Check MDN for the toLocaleString method on the Number Object **
     `
   const exercise5 = _ => {
-    return []
+    return map(
+      car =>
+        prop('salesPrice', car).toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        }),
+      cars
+    )
   }
 
   const ex6 = `Use compose and filter to return cars with V8s, map over them and return the names of the cars with the first letter capitalized.`
 
   const exercise6 = _ => {
-    return []
+    const v8Finder = filter(car => prop('engine', car) === 'V8')
+    const nameTransformer = map(car => {
+      const name = car.model.split(' ')
+      const capNames = map(
+        n => head(n).toUpperCase() + tail(n).toLowerCase(),
+        name
+      )
+      return capNames.join(' ')
+    })
+    const result = compose(
+      nameTransformer,
+      v8Finder
+    )
+    return result(cars)
   }
 
   /* tests to validate exercises go here */
