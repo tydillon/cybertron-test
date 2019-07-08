@@ -7,19 +7,19 @@ export default function() {
   const ex1 = 'use map to cube (n³) each value and return'
   const exercise1 = _ => {
     const numbers = [3, 6, 9, 12, 15, 18]
-    return [] // return answer here
+    return map(num => num ** 3, numbers)
   }
 
   const ex2 = 'use filter to only return numbers divisible by 6'
   const exercise2 = _ => {
     const numbers = [28, 42, 55, 66, 72, 84, 93]
-    return [] // return answer here
+    return filter(num => num % 6 === 0, numbers)
   }
 
   const ex3 = 'use reduce to sum the numbers'
   const exercise3 = _ => {
     const numbers = [10, 20, 30, 40, 50, 60]
-    return 0 // return answer here
+    return reduce((acc, num) => acc + num, 0, numbers)
   }
 
   const ex4 = `use compose to run the following three commands
@@ -30,19 +30,27 @@ export default function() {
 `
   const exercise4 = _ => {
     const numbers = [1, 3, 6, 10, 13, 16]
-    return 0 // return answer here
+    const tripler = map(num => num * 3)
+    const evens = filter(num => num % 2 === 0)
+    const adder = reduce((acc, num) => acc + num, 0)
+    const result = compose(
+      adder,
+      evens,
+      tripler
+    )
+    return result(numbers)
   }
 
   const ex5 = 'Use map to find the square root of each number'
   const exercise5 = _ => {
     const numbers = [9, 16, 25, 36, 49, 64, 81]
-    return [] // return answer here
+    return map(num => Math.sqrt(num), numbers)
   }
 
   const ex6 = 'use filter to return numbers between 10 and 20'
   const exercise6 = _ => {
     const numbers = [1, 5, 6, 3, 10, 12, 18, 21, 28, 34, 39, 45]
-    return [] // return answer here
+    return filter(num => num > 10 && num < 20, numbers)
   }
 
   const ex7 = `use compose and the checkPrimes function to run the following three commands:
@@ -56,7 +64,14 @@ export default function() {
   `
   const exercise7 = _ => {
     const numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-    return 0 // return answer here
+    const minusOne = map(num => num - 1)
+    const counter = reduce((acc, num) => (acc = acc + 1), 0)
+    const result = compose(
+      counter,
+      filter(checkPrimes),
+      minusOne
+    )
+    return result(numbers)
   }
 
   /* tests to validate exercises go here */
