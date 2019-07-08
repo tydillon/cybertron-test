@@ -694,83 +694,170 @@
       return _equals(a, b, [], []);
     });
 
-    function level1() {
-      /* Level 1 */
-      const ex1 = 'use map to cube (n³) each value and return';
+    function level2() {
+      /* Level 2 - colors */
+
+      const ex1 =
+        'Use map to return a concatenated first and last name of each client.';
       const exercise1 = _ => {
-        return [] // return answer here
+        return []
       };
 
-      const ex2 = 'use filter to only return numbers divisible by 6';
+      const ex2 = 'Use filter to return clients from Wyoming';
       const exercise2 = _ => {
-        return [] // return answer here
+        return []
       };
 
-      const ex3 = 'use reduce to sum the numbers';
+      const ex3 = 'Use reduce to count the number of people with green eyes ';
       const exercise3 = _ => {
-        return 0 // return answer here
+        return 0
       };
 
-      const ex4 = `use compose to run the following three commands
-
-1. map over the numbers and triple each number
-2. use filter and keep the even numbers
-3. use reduce to add the resulting numbers
-`;
+      const ex4 = `Use map, filter and reduce with compose to return the full name (as a string) of the female from Wyoming. `;
       const exercise4 = _ => {
-        return 0 // return answer here
+        return null
       };
 
-      const ex5 = 'Use map to find the square root of each number';
+      const ex5 =
+        'Use map and filter to return the full address of the clients living in North Carolina';
       const exercise5 = _ => {
-        return [] // return answer here
+        return []
       };
 
-      const ex6 = 'use filter to return numbers between 10 and 20';
+      const ex6 = 'use filter to remove anyone over the age of 25';
       const exercise6 = _ => {
-        return [] // return answer here
+        return []
       };
 
-      const ex7 = `use compose and the checkPrimes function to run the following three commands:
-
-  1. Use map to subtract 1 from each numbers
-  2. Use filter to return all prime numbers.
-  3. Use reduce to count the number of prime numbers in the array.
-
-  ** If you have time at the end, try and figure out how to take the
-     checkPrimes formula and write it functionally into your compose **
-  `;
+      const ex7 =
+        'use reduce to count the number of males, age 22 - 27, who have green eyes';
       const exercise7 = _ => {
-        return 0 // return answer here
+        return 0
       };
 
       /* tests to validate exercises go here */
-      test('Level 1', assert => {
-        assert.same(exercise1(), [27, 216, 729, 1728, 3375, 5832], ex1);
-        assert.same(exercise2(), [42, 66, 72, 84], ex2);
-        assert.same(exercise3(), 210, ex3);
-        assert.same(exercise4(), 96, ex4);
-        assert.same(exercise5(), [3, 4, 5, 6, 7, 8, 9], ex5);
-        assert.same(exercise6(), [12, 18], ex6);
-        assert.same(exercise7(), 5, ex7);
+      test('test', assert => {
+        assert.same(
+          exercise1(),
+          [
+            'Horne Hahn',
+            'Rhodes Harvey',
+            'Concetta Talley',
+            'Sandra Hogan',
+            'Butler Flynn',
+            'Hurst Adkins'
+          ],
+          ex1
+        );
+        assert.same(
+          exercise2(),
+          [
+            {
+              age: 26,
+              eyeColor: 'green',
+              name: {
+                firstName: 'Sandra',
+                lastName: 'Hogan'
+              },
+              gender: 'female',
+              email: 'sandrahogan@vidto.com',
+              phone: '+1 (987) 568-2357',
+              address: {
+                street: '332 Junius Street',
+                city: 'Cheyenne',
+                state: 'Wyoming',
+                zip: 37564
+              },
+              registered: '2015-03-18T11:57:49 +04:00'
+            },
+            {
+              age: 27,
+              eyeColor: 'blue',
+              name: {
+                firstName: 'Hurst',
+                lastName: 'Adkins'
+              },
+              gender: 'male',
+              email: 'hurstadkins@vidto.com',
+              phone: '+1 (955) 490-2739',
+              address: {
+                street: '874 Delvana Street',
+                city: 'Nanafilda',
+                state: 'Wyoming',
+                zip: 98647
+              },
+              registered: '2015-02-01T11:16:26 +05:00'
+            }
+          ],
+          ex2
+        );
+        assert.same(exercise3(), 4, ex3);
+        assert.same(exercise4(), 'Sandra Hogan', ex4);
+        assert.same(
+          exercise5(),
+          ['342 Gelston Avenue Asheville, North Carolina 28801'],
+          ex5
+        );
+        assert.same(
+          exercise6(),
+          [
+            {
+              age: 22,
+              eyeColor: 'green',
+              name: {
+                firstName: 'Horne',
+                lastName: 'Hahn'
+              },
+              gender: 'male',
+              email: 'hornehahn@vidto.com',
+              phone: '+1 (803) 528-3269',
+              address: {
+                street: '494 Bayview Place',
+                city: 'Chesterfield',
+                state: 'Nebraska',
+                zip: 84643
+              },
+              registered: '2014-04-13T12:10:25 +04:00'
+            },
+            {
+              age: 25,
+              eyeColor: 'green',
+              name: {
+                firstName: 'Rhodes',
+                lastName: 'Harvey'
+              },
+              gender: 'male',
+              email: 'rhodesharvey@vidto.com',
+              phone: '+1 (975) 583-2319',
+              address: {
+                street: '705 Legion Street',
+                city: 'Herald',
+                state: 'Idaho',
+                zip: 63136
+              },
+              registered: '2015-03-24T11:02:46 +04:00'
+            }
+          ],
+          ex6
+        ),
+          assert.same(exercise7(), 2, ex7);
       });
     }
 
-    assert.same = (a,b,msg) => {
-      const result = equals(a,b);
+    assert.same = (a, b, msg) => {
+      const result = equals(a, b);
       if (!result) {
         console.log('<<<<<<<test>>>>>>>');
         console.log('test - ', msg);
         console.log(`expected: ${JSON.stringify(b)}`);
         console.log('actual: ', JSON.stringify(a));
       }
-      assert.ok(equals(a,b), msg);
+      assert.ok(equals(a, b), msg);
     };
 
-
     // level3()
-    // level2()
-    level1();
+    level2();
+    // level1()
 
     window.test = test;
     tapBrowserColor();
