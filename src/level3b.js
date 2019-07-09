@@ -1,5 +1,5 @@
 import { test } from 'tape-modern'
-import { map, filter, reduce, compose, prop, head, tail } from 'ramda'
+import { map, filter, reduce, compose, prop } from 'ramda'
 import capitalizeWords from './lib/capitalize'
 
 const cars = [
@@ -58,14 +58,7 @@ export default function() {
   const ex1 =
     'Use map to transform the list of auto models to uppercase the first letter of each word'
   const exercise1 = _ => {
-    return map(car => {
-      const name = car.model.split(' ')
-      const capNames = map(
-        n => head(n).toUpperCase() + tail(n).toLowerCase(),
-        name
-      )
-      return capNames.join(' ')
-    }, cars)
+    return map(car => capitalizeWords(prop('model', car)), cars)
   }
 
   const ex2 = 'Use filter to return a list of cars made between 2001-2004'
@@ -129,14 +122,7 @@ export default function() {
 
   const exercise6 = _ => {
     const v8Finder = filter(car => prop('engine', car) === 'V8')
-    const nameTransformer = map(car => {
-      const name = car.model.split(' ')
-      const capNames = map(
-        n => head(n).toUpperCase() + tail(n).toLowerCase(),
-        name
-      )
-      return capNames.join(' ')
-    })
+    const nameTransformer = map(car => capitalizeWords(car.model))
     const result = compose(
       nameTransformer,
       v8Finder
